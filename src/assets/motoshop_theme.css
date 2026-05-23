@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+
+  /* =========================
+     🏍️ Urban Street Garage
+  ========================= */
+  --color-urban-bg: #0B0F14;
+  --color-urban-surface: #151C24;
+  --color-urban-text: #E6E6E6;
+  --color-urban-neon-blue: #00E5FF;
+  --color-urban-racing-red: #FF3B30;
+  --color-urban-neon-green: #39FF14;
+
+  /* =========================
+     🛠️ Clean Professional Workshop
+  ========================= */
+  --color-workshop-bg: #F7F9FC;
+  --color-workshop-surface: #FFFFFF;
+  --color-workshop-text: #1F2937;
+  --color-workshop-muted: #6B7280;
+  --color-workshop-blue: #2563EB;
+  --color-workshop-orange: #F97316;
+
+  /* =========================
+     🏁 Racing Performance Premium
+  ========================= */
+  --color-racing-bg: #0A0A0F;
+  --color-racing-surface: #111827;
+  --color-racing-text: #F3F4F6;
+  --color-racing-gold: #D4AF37;
+  --color-racing-red: #EF4444;
+  --color-racing-blue: #3B82F6;
+
+  /* =========================
+     🇯🇵 JDM Inspired Garage
+  ========================= */
+  --color-jdm-bg: #0D0D0D;
+  --color-jdm-surface: #1A1A1A;
+  --color-jdm-text: #F5F5F5;
+  --color-jdm-red: #E11D48;
+  --color-jdm-white: #FFFFFF;
+  --color-jdm-gray: #A3A3A3;
+
+  /* Fonts */
+  --font-garage: "Bebas Neue", sans-serif;
+  --font-modern: "Inter", sans-serif;
+  --font-racing: "Orbitron", sans-serif;
+
+  /* Shadows */
+  --shadow-neon: 0 0 10px rgba(0, 229, 255, 0.7);
+  --shadow-racing: 0 0 15px rgba(239, 68, 68, 0.6);
+}
