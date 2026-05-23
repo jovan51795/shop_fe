@@ -7,28 +7,26 @@ console.log('this is the images', data)
 </script>
 
 <template>
-  <div class="container mx-auto border-b-3 border-[#1F2937]">
-    <div class="flex justify-between mx-5 mt-5 mb-2 text-white">
+  <div class="container mx-auto border-b-3 pb-5 border-[#1F2937]">
+    <div class="flex justify-between mx-8 mt-5 mb-2 text-white">
       <h2 class="uppercase font-extrabold">{{ data.title }}</h2>
       <div>
         <RouterLink>View All</RouterLink>
       </div>
     </div>
-    <div class="flex flex-col flex-row flex-wrap justify-center align-center sm:justify-center">
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 justify-items-center justify-center px-8"
+    >
       <div
-        class="bg-[#1F2937] p-6 shadow-xs rounded-lg mx-1 mb-1 flex justify-between flex flex-col"
+        class="w-full max-w-44 bg-[#1F2937] p-6 rounded-lg shadow-xs m-1 flex justify-between flex-col"
         v-for="(image, index) in data.images"
         :key="index"
       >
-        <a href="#">
-          <img
-            :src="image.img"
-            :alt="image.alt"
-            class="object-contain max-h-[300px] w-[300px] sm:w-[200px] md:w-[250px] lg:w-[250px] sm:max-h-[200px] md:max-h-[300px]"
-          />
+        <a href="#" class="m-auto">
+          <img class="rounded-base mb-6 max-h-40" :src="image.img" :alt="image.alt" />
         </a>
-        <div>
-          <h2 class="text-center text-white uppercase font-bold">{{ image.alt }}</h2>
+        <div class="flex items-center justify-center">
+          <span class="font-extrabold text-heading uppercase text-white">{{ image.alt }}</span>
         </div>
       </div>
     </div>

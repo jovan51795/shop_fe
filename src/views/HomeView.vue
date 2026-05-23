@@ -32,6 +32,26 @@ const summary = {
       alt: 'Accessories',
       img: accessories,
     },
+    {
+      alt: 'Helmets',
+      img: helmet,
+    },
+    {
+      alt: 'Tires',
+      img: tire,
+    },
+    {
+      alt: 'Oil & Fluids',
+      img: oil,
+    },
+    {
+      alt: 'Brake Systems',
+      img: brakes,
+    },
+    {
+      alt: 'Accessories',
+      img: accessories,
+    },
   ],
 }
 </script>
