@@ -9,6 +9,8 @@ import oil from '@/assets/oil.png'
 import brakes from '@/assets/brakes.png'
 import accessories from '@/assets/accessories.png'
 import FeaturedProducts from '@/components/FeaturedProducts.vue'
+import Services from '@/components/Services.vue'
+import TopFooter from '@/components/TopFooter.vue'
 
 const summary = {
   title: 'Shop By Category',
@@ -82,5 +84,7 @@ const summary = {
     <Banner />
     <Category :data="summary" />
     <FeaturedProducts :data="summary" />
+    <Services :data="summary" />
+    <TopFooter />
   </main>
 </template>

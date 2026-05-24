@@ -18,12 +18,12 @@ const scroll = (direction) => {
 </script>
 
 <template>
-  <div class="container mx-auto border-b-3 pb-5 pt-1 mt-5 border-[#1F2937] flex justify-center">
+  <div class="container mx-auto border-b-3 pb-3 pt-1 mt-5 border-[#1F2937] flex justify-center">
     <div class="w-[96%]">
       <div class="flex justify-between mt-5 mb-2 text-white">
         <h2 class="uppercase font-extrabold">Featured Products</h2>
-        <div>
-          <RouterLink to="#">View All</RouterLink>
+        <div class="text-[#EF4444]">
+          <RouterLink to="/home">View All</RouterLink>
         </div>
       </div>
       <div class="relative w-full rounded-lg">

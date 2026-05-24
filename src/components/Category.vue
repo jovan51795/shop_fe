@@ -2,16 +2,14 @@
 import { RouterLink } from 'vue-router'
 
 const { data } = defineProps(['data'])
-
-console.log('this is the images', data)
 </script>
 
 <template>
   <div class="container mx-auto border-b-3 pb-5 pt-1 mt-5 border-[#1F2937]">
     <div class="flex justify-between mx-8 mt-5 mb-2 text-white">
       <h2 class="uppercase font-extrabold">{{ data.title }}</h2>
-      <div>
-        <RouterLink>View All</RouterLink>
+      <div class="text-[#EF4444]">
+        <RouterLink to="/home">View All</RouterLink>
       </div>
     </div>
     <div
