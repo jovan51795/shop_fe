@@ -1,13 +1,15 @@
 <template>
   <Disclosure
     as="nav"
-    class="fixed top-0 left-0 w-full z-50 bg-[#0B0F14] dark:after:pointer-events-none dark:after:absolute dark:after:inset-x-0 dark:after:bottom-0 dark:after:h-px dark:after:bg-white/10"
+    class="fixed top-0 left-0 w-full my-auto h-[80px] z-50 bg-[#0B0F14] dark:after:pointer-events-none dark:after:absolute dark:after:inset-x-0 dark:after:bottom-0 dark:after:h-px dark:after:bg-white/10 flex justify-center"
     v-slot="{ open }"
+    style="align-items: center"
   >
-    <div class="mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="mx-auto px-2 sm:px-6 lg:px-8 w-full">
       <div class="relative flex items-center justify-between">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
           <!-- Mobile menu button-->
+
           <DisclosureButton
             class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500"
           >
@@ -16,12 +18,30 @@
             <Bars3Icon v-if="!open" class="block size-6" aria-hidden="true" />
             <XMarkIcon v-else class="block size-6" aria-hidden="true" />
           </DisclosureButton>
+          <DisclosurePanel class="md:hidden absolute top-8">
+            <div class="space-y-1 px-2 pt-2 pb-3">
+              <DisclosureButton
+                v-for="item in navigation"
+                :key="item.name"
+                as="a"
+                :href="item.href"
+                :class="[
+                  item.current
+                    ? 'bg-gray-900 text-white dark:bg-gray-950/50'
+                    : 'text-gray-300 hover:bg-white/5 hover:text-white',
+                  'block rounded-md px-3 py-2 text-base font-medium',
+                ]"
+                :aria-current="item.current ? 'page' : undefined"
+                >{{ item.name }}</DisclosureButton
+              >
+            </div>
+          </DisclosurePanel>
         </div>
 
         <!-- LOGO -->
         <div class="flex shrink-0 items-center">
           <img
-            class="h-8 w-auto"
+            class="h-8 w-auto hidden md:block"
             src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
             alt="Your Company"
           />
@@ -29,7 +49,7 @@
 
         <!-- MAIN NAV -->
         <div class="flex items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="hidden sm:ml-6 sm:block">
+          <div class="hidden sm:ml-6 md:block">
             <div class="flex space-x-4">
               <a
                 v-for="item in navigation"
@@ -37,9 +57,9 @@
                 :href="item.href"
                 :class="[
                   item.current
-                    ? 'text-white border-b-2 border-indigo-500'
+                    ? 'text-[#EF4444] border-b-2 border-[#EF4444]'
                     : 'text-slate-300 border-b-2 border-transparent hover:text-white',
-                  'flex items-center h-20 px-3  py-2 text-sm font-medium transition uppercase',
+                  'flex items-center h-20 px-3 lg:text-sm  py-2 text-xs font-medium transition uppercase',
                 ]"
                 :aria-current="item.current ? 'page' : undefined"
                 >{{ item.name }}</a
@@ -120,25 +140,6 @@
         </div>
       </div>
     </div>
-
-    <DisclosurePanel class="sm:hidden">
-      <div class="space-y-1 px-2 pt-2 pb-3">
-        <DisclosureButton
-          v-for="item in navigation"
-          :key="item.name"
-          as="a"
-          :href="item.href"
-          :class="[
-            item.current
-              ? 'bg-gray-900 text-white dark:bg-gray-950/50'
-              : 'text-gray-300 hover:bg-white/5 hover:text-white',
-            'block rounded-md px-3 py-2 text-base font-medium',
-          ]"
-          :aria-current="item.current ? 'page' : undefined"
-          >{{ item.name }}</DisclosureButton
-        >
-      </div>
-    </DisclosurePanel>
   </Disclosure>
 </template>
 

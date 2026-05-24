@@ -7,9 +7,9 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <Header />
+  <<Header />
   <RouterView />
-  <main class="container mx-auto">
+  <main>
     <TopFooter />
     <BottomFooter />
   </main>
