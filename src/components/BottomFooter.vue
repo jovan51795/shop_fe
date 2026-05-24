@@ -36,7 +36,7 @@ const infos = [
       class="flex flex-row text-white justify-start w-full"
     >
       <component :is="info.icon" class="max-w-[40px] text-[#EF4444]" />
-      <div class="flex flex-col justify-center align-center pl-3">
+      <div class="flex flex-col justify-center item-center pl-3">
         <h1 class="uppercase font-bold">{{ info.title }}</h1>
         <p class="capitalize">{{ info.description }}</p>
       </div>
