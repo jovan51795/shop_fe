@@ -7,7 +7,7 @@ console.log('this is the images', data)
 </script>
 
 <template>
-  <div class="container mx-auto border-b-3 pb-5 border-[#1F2937]">
+  <div class="container mx-auto border-b-3 pb-5 pt-1 mt-5 border-[#1F2937]">
     <div class="flex justify-between mx-8 mt-5 mb-2 text-white">
       <h2 class="uppercase font-extrabold">{{ data.title }}</h2>
       <div>
@@ -23,7 +23,7 @@ console.log('this is the images', data)
         :key="index"
       >
         <a href="#" class="m-auto">
-          <img class="rounded-base mb-6 max-h-40" :src="image.img" :alt="image.alt" />
+          <img class="mb-6 max-h-40" :src="image.img" :alt="image.alt" />
         </a>
         <div class="flex items-center justify-center">
           <span class="font-extrabold text-heading uppercase text-white">{{ image.alt }}</span>
