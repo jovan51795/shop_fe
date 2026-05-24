@@ -85,6 +85,5 @@ const summary = {
     <Category :data="summary" />
     <FeaturedProducts :data="summary" />
     <Services :data="summary" />
-    <TopFooter />
   </main>
 </template>
