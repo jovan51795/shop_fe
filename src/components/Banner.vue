@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import mobile from '@/assets/banner/400x500.png'
-import desktop from '@/assets/banner/banner.png'
+import desktop from '@/assets/banner/desktop_banner.png'
 import { ShoppingCartIcon, WrenchIcon } from '@heroicons/vue/20/solid'
 </script>
 
 <template>
   <div class="container mx-auto w-full mt-10 md:mt-10 relative">
-    <div class="absolute md:top-20 -top-3">
+    <div class="absolute md:top-20 -top-3 md:left-10">
       <div class="m-10">
         <div class="uppercase font-bold md:text-4xl text-2xl leading-[1.2]">
           <h1 class="text-white italic">PARTS. GEARS.</h1>
-          <h1 class="text-white italic">SERVICE.</h1>
-          <h3 class="text-[#EF4444] md:mb-3">RIDE BETTER</h3>
+          <h1 class="text-white italic">SERVICES.</h1>
+          <h3 class="text-[#EF4444] md:mb-3">RIDE BETTER. RIDE SAFE</h3>
         </div>
         <div class="text-white md:text-xl text-md flex flex-col">
           <span class="md:mb-3">Your one stop-shop for motorcycle parts,</span>
