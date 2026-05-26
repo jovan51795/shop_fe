@@ -84,3 +84,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.link {
+  color: var(--color-racing-red);
+}
+
+.link:hover {
+  color: #dc2626;
+}
+
+.btn-primary {
+  background-color: var(--color-racing-red);
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #dc2626;
+}
