@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, defineProps } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const carousel = ref(null)
 const { data } = defineProps(['data'])
@@ -49,9 +50,9 @@ const scroll = (direction) => {
             v-for="(image, index) in data.images"
             :key="index"
           >
-            <a href="#" class="m-auto">
+            <RouterLink :to="`${index}/details`" class="m-auto">
               <img class="max-h-40 mb-6" :src="image.img" :alt="image.alt" />
-            </a>
+            </RouterLink>
             <div class="flex items-center justify-center">
               <span class="font-extrabold text-heading uppercase text-white">{{ image.alt }}</span>
             </div>

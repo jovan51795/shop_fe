@@ -1,8 +1,6 @@
 <script setup lang="ts">
-// import { CheckBadgeIcon, ShieldCheckIcon, TruckIcon } from '@heroicons/vue/20/solid'
 import { CheckBadgeIcon, ShieldCheckIcon, TruckIcon } from '@heroicons/vue/20/solid'
-import IconHeadset from './icons/IconHeadset.vue'
-import { title } from 'process'
+import IconHeadset from '@/components/icons/IconHeadset.vue'
 
 const infos = [
   {
