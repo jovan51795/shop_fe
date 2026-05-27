@@ -10,7 +10,26 @@ import {
 } from '@heroicons/vue/20/solid'
 import { computed, ref } from 'vue'
 
-const images = [helmet, brakes, helmet]
+const images = [
+  helmet,
+  brakes,
+  helmet,
+  helmet,
+  brakes,
+  helmet,
+  helmet,
+  brakes,
+  helmet,
+  helmet,
+  brakes,
+  helmet,
+  helmet,
+  brakes,
+  helmet,
+  helmet,
+  brakes,
+  helmet,
+]
 
 const carousel = ref(null)
 const image = ref(helmet)
@@ -48,8 +67,6 @@ const showHoveredImage = (event, index) => {
   image.value = img.src
 }
 const numberOfEllipsis = computed(() => {
-  // return images.length > 5 ? 4 : 3
-
   switch (true) {
     case images.length === 1:
       return 1
