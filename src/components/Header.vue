@@ -1,3 +1,27 @@
+<script setup>
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+} from '@headlessui/vue'
+
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { RouterLink } from 'vue-router'
+
+const navigation = [
+  { name: 'HOME', href: '/home', current: true },
+  { name: 'SHOP', href: '/shop', current: true },
+  { name: 'SERVICES', href: '/services', current: false },
+  { name: 'BOOKING', href: '/booking', current: false },
+  { name: 'ABOUT US', href: '/about', current: false },
+  { name: 'CONTACT', href: '/contact', current: false },
+]
+</script>
+
 <template>
   <Disclosure
     as="nav"
@@ -51,18 +75,13 @@
         <div class="flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="hidden sm:ml-6 md:block">
             <div class="flex space-x-4">
-              <a
+              <RouterLink
                 v-for="item in navigation"
                 :key="item.name"
-                :href="item.href"
-                :class="[
-                  item.current
-                    ? 'text-[#EF4444] border-b-2 border-[#EF4444]'
-                    : 'text-slate-300 border-b-2 border-transparent hover:text-white',
-                  'flex items-center h-20 px-3 lg:text-sm  py-2 text-xs font-medium transition uppercase',
-                ]"
+                :to="item.href"
+                class="flex items-center h-20 px-3 lg:text-sm py-2 text-xs font-medium transition uppercase text-slate-300 border-b-2 border-transparent hover:text-white"
                 :aria-current="item.current ? 'page' : undefined"
-                >{{ item.name }}</a
+                >{{ item.name }}</RouterLink
               >
             </div>
           </div>
@@ -143,25 +162,9 @@
   </Disclosure>
 </template>
 
-<script setup>
-import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-} from '@headlessui/vue'
-
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
-
-const navigation = [
-  { name: 'HOME', href: '#', current: true },
-  { name: 'SHOP', href: '#', current: false },
-  { name: 'SERVICES', href: '#', current: false },
-  { name: 'BOOKING', href: '#', current: false },
-  { name: 'ABOUT US', href: '#', current: false },
-  { name: 'CONTACT', href: '#', current: false },
-]
-</script>
+<style scoped>
+.router-link-exact-active {
+  border-bottom: 2px solid #ef4444;
+  color: #ef4444;
+}
+</style>
