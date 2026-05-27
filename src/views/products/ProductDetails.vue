@@ -1,33 +1,140 @@
 <script setup lang="ts">
 import helmet from '@/assets/helmet.png'
-import { ShoppingCartIcon, HeartIcon } from '@heroicons/vue/20/solid'
+import brakes from '@/assets/brakes.png'
+
+import {
+  ShoppingCartIcon,
+  HeartIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from '@heroicons/vue/20/solid'
+import { computed, ref } from 'vue'
+
+const images = [helmet, brakes, helmet]
+
+const carousel = ref(null)
+const image = ref(helmet)
+const canScrollUp = ref(false)
+const canScrollDown = ref(false)
+const ellipsis = ref(null)
+const ellipsisIndex = ref(0)
+const scroll = (direction) => {
+  console.log(direction)
+  const el = carousel.value
+  if (!el) return
+
+  const amount = 300
+
+  el.scrollBy({
+    top: direction === 'up' ? -amount : amount,
+    behavior: 'smooth',
+  })
+}
+
+const updateScrollState = () => {
+  const el = carousel.value
+  console.log
+  if (!el) return
+
+  canScrollUp.value = el.scrollTop > 0
+
+  canScrollDown.value = el.scrollTop + el.clientHeight < el.scrollHeight
+}
+
+const showHoveredImage = (event, index) => {
+  handleEllipsis(index + 1)
+  const img = event.currentTarget.querySelector('img')
+
+  image.value = img.src
+}
+const numberOfEllipsis = computed(() => {
+  // return images.length > 5 ? 4 : 3
+
+  switch (true) {
+    case images.length === 1:
+      return 1
+
+    case images.length === 2:
+      return 2
+
+    case images.length <= 5:
+      return 3
+
+    case images.length > 5:
+      return 4
+
+    default:
+      return 0
+  }
+})
+
+const handleEllipsis = (index) => {
+  const el = ellipsis.value
+  if (!el) return
+  const numberOfElements = images.length
+  const percentage = (index / numberOfElements) * 100
+  const result = (percentage / 100) * numberOfEllipsis.value
+  ellipsisIndex.value = Math.round(result) - 1
+}
 </script>
 
 <template>
   <div class="container mx-auto pt-20">
     <div>
-      <div class="bg-[#121212] grid grid-cols-2 justify-items-between align-items-center p-4">
-        <div class="flex flex-row items-center">
+      <div
+        class="bg-[#121212] grid gap-4 lg:grid-cols-2 grid-cols-1 justify-items-between align-items-center p-4"
+      >
+        <div class="relative flex flex-row items-center">
           <div
-            class="flex flex-col overflow-y-auto scrollbar-none scroll-smooth h-[520px] p-2 rounded-lg gap-2"
+            ref="carousel"
+            @scroll="updateScrollState"
+            class="flex flex-col items-center overflow-y-auto scrollbar-none scroll-smooth lg:h-[520px] h-[400px] p-2 rounded-lg gap-2"
           >
-            <div
-              v-for="(c, index) in 10"
-              :key="index"
-              class="p-2 flex-shrink-0 h-[calc(20%-0.5rem)] p-2 bg-[#1F2937] rounded-lg shadow-xs flex items-center justify-center transition-transform hover:scale-105 cursor-pointer"
+            <button
+              v-if="canScrollUp"
+              @click="scroll('up')"
+              class="absolute -translate-y-1/2 bg-black/60 text-white px-2"
             >
-              <img :src="helmet" alt="" class="w-25 p-1 object-contain" />
+              <ChevronUpIcon class="w-[40px]" />
+            </button>
+            <button
+              v-if="canScrollDown"
+              @click="scroll('down')"
+              class="absolute -bottom-8 -translate-y-1/2 bg-black/60 text-white px-2"
+            >
+              <ChevronDownIcon class="w-[40px]" />
+            </button>
+            <div
+              @click="showHoveredImage($event, index)"
+              @mouseover="showHoveredImage($event, index)"
+              v-for="(c, index) in images"
+              :key="index"
+              class="p-2 flex-shrink-0 h-[calc(20%-0.3rem)] p-2 bg-[#1F2937] rounded-lg shadow-xs flex items-center justify-center transition-transform hover:scale-105 cursor-pointer"
+            >
+              <img :src="c" alt="" class="w-25 p-1 object-contain" />
             </div>
           </div>
-          <div class="p-5 w-full h-[520px] flex justify-center items-center">
-            <img :src="helmet" alt="" class="max-w-120" />
+          <div
+            class="relative p-5 w-full lg:h-[520px] h-[400px] flex flex-col justify-center items-center"
+          >
+            <img :src="image" alt="" class="max-h-90 lg:max-h-fit" />
+            <div class="absolute bottom-0 flex gap-2" ref="ellipsis">
+              <div
+                :class="[
+                  'w-[10px] h-[9px] rounded-full',
+                  ellipsisIndex === index ? 'bg-white' : 'bg-gray-500',
+                ]"
+                v-for="(el, index) in numberOfEllipsis"
+                :key="index"
+              ></div>
+            </div>
           </div>
         </div>
         <div class="ml-4">
           <div class="flex flex-col justify-between gap-5 text-white">
             <div class="text-white">
               <small class="uppercase">best seller</small>
-              <h1 class="text-4xl font-bold uppercase">AGV PISTA GR RR</h1>
+              <h1 class="lg:text-4xl text-2xl font-bold uppercase">AGV PISTA GR RR</h1>
               <span class="capitalize">Full face helmet</span>
             </div>
             <div>
@@ -105,28 +212,27 @@ import { ShoppingCartIcon, HeartIcon } from '@heroicons/vue/20/solid'
             </div>
             <div>
               <span>QUANTITY:</span>
-              <div class="flex flex-row items-center gap-4 w-full mt-2">
+              <div class="flex md:flex-row flex-col items-center gap-4 w-full mt-2">
                 <div
-                  class="grid grid-cols-3 border-2 border-[#6B7280] w-3xs text-center rounded-md"
+                  class="grid grid-cols-3 border-2 border-[#6B7280] text-center rounded-md w-full"
                 >
                   <span class="cursor-pointer hover:bg-[#6B7280] p-2">-</span>
                   <span class="p-2">1</span>
                   <span class="cursor-pointer hover:bg-[#6B7280] p-2">+</span>
                 </div>
-                <div class="grid grid-cols-2 w-full gap-4">
-                  <button
-                    class="flex flex-row justify-center items-center max-w-sm btn-primary p-2 rounded-lg gap-2"
-                  >
-                    <ShoppingCartIcon class="max-w-[20px]" />
-                    <span class="uppercase">Add to cart</span>
-                  </button>
-                  <button
-                    class="gap-2 flex flex-row justify-center items-center max-w-sm p-2 rounded-lg bg-[#6B7280] md:bg-transparent border-2 border-[#6B7280] hover:bg-[#6B7280] hover:text-white"
-                  >
-                    <HeartIcon class="max-w-[20px]" />
-                    <span class="uppercase">WiSH LIST</span>
-                  </button>
-                </div>
+                <button
+                  class="flex flex-row justify-center items-center btn-primary p-2 rounded-lg gap-2"
+                >
+                  <ShoppingCartIcon class="max-w-[20px]" />
+                  <span class="uppercase">Add to cart</span>
+                </button>
+
+                <button
+                  class="gap-2 w-full flex flex-row justify-center items-center p-2 rounded-lg bg-[#6B7280] md:bg-transparent border-2 border-[#6B7280] hover:bg-[#6B7280] hover:text-white"
+                >
+                  <HeartIcon class="max-w-[20px]" />
+                  <span class="uppercase">WiSH LIST</span>
+                </button>
               </div>
             </div>
           </div>
