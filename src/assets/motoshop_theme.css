@@ -1,51 +1,53 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+@theme {
+  --breakpoint-xxl: 30rem;
+}
 :root {
-
   /* =========================
      🏍️ Urban Street Garage
   ========================= */
-  --color-urban-bg: #0B0F14;
-  --color-urban-surface: #151C24;
-  --color-urban-text: #E6E6E6;
-  --color-urban-neon-blue: #00E5FF;
-  --color-urban-racing-red: #FF3B30;
-  --color-urban-neon-green: #39FF14;
+  --color-urban-bg: #0b0f14;
+  --color-urban-surface: #151c24;
+  --color-urban-text: #e6e6e6;
+  --color-urban-neon-blue: #00e5ff;
+  --color-urban-racing-red: #ff3b30;
+  --color-urban-neon-green: #39ff14;
 
   /* =========================
      🛠️ Clean Professional Workshop
   ========================= */
-  --color-workshop-bg: #F7F9FC;
-  --color-workshop-surface: #FFFFFF;
-  --color-workshop-text: #1F2937;
-  --color-workshop-muted: #6B7280;
-  --color-workshop-blue: #2563EB;
-  --color-workshop-orange: #F97316;
+  --color-workshop-bg: #f7f9fc;
+  --color-workshop-surface: #ffffff;
+  --color-workshop-text: #1f2937;
+  --color-workshop-muted: #6b7280;
+  --color-workshop-blue: #2563eb;
+  --color-workshop-orange: #f97316;
 
   /* =========================
      🏁 Racing Performance Premium
   ========================= */
-  --color-racing-bg: #0A0A0F;
+  --color-racing-bg: #0a0a0f;
   --color-racing-surface: #111827;
-  --color-racing-text: #F3F4F6;
-  --color-racing-gold: #D4AF37;
-  --color-racing-red: #EF4444;
-  --color-racing-blue: #3B82F6;
+  --color-racing-text: #f3f4f6;
+  --color-racing-gold: #d4af37;
+  --color-racing-red: #ef4444;
+  --color-racing-blue: #3b82f6;
 
   /* =========================
      🇯🇵 JDM Inspired Garage
   ========================= */
-  --color-jdm-bg: #0D0D0D;
-  --color-jdm-surface: #1A1A1A;
-  --color-jdm-text: #F5F5F5;
-  --color-jdm-red: #E11D48;
-  --color-jdm-white: #FFFFFF;
-  --color-jdm-gray: #A3A3A3;
+  --color-jdm-bg: #0d0d0d;
+  --color-jdm-surface: #1a1a1a;
+  --color-jdm-text: #f5f5f5;
+  --color-jdm-red: #e11d48;
+  --color-jdm-white: #ffffff;
+  --color-jdm-gray: #a3a3a3;
 
   /* Fonts */
-  --font-garage: "Bebas Neue", sans-serif;
-  --font-modern: "Inter", sans-serif;
-  --font-racing: "Orbitron", sans-serif;
+  --font-garage: 'Bebas Neue', sans-serif;
+  --font-modern: 'Inter', sans-serif;
+  --font-racing: 'Orbitron', sans-serif;
 
   /* Shadows */
   --shadow-neon: 0 0 10px rgba(0, 229, 255, 0.7);

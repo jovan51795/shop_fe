@@ -46,7 +46,7 @@ const scroll = (direction) => {
 
         <div ref="carousel" class="flex gap-4 overflow-x-auto scroll-smooth py-4 scrollbar-hide">
           <div
-            class="w-60 flex-shrink-0 bg-[#1F2937] py-6 rounded-lg shadow-xs flex flex-col justify-between"
+            class="w-60 flex-shrink-0 bg-gradient-to-b from-[#1A1A1B] via-[#222224] to-[#272424] py-6 rounded-lg shadow-xs flex flex-col justify-between"
             v-for="(image, index) in data.images"
             :key="index"
           >

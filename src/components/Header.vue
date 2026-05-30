@@ -66,7 +66,7 @@ const navigation = [
         <div class="flex shrink-0 items-center">
           <img
             class="h-8 w-auto hidden md:block"
-            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+            src="../assets/logos/moto_logo.png"
             alt="Your Company"
           />
         </div>

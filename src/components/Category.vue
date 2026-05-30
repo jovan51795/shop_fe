@@ -16,7 +16,7 @@ const { data } = defineProps(['data'])
       class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 justify-items-center justify-center px-8"
     >
       <div
-        class="w-full max-w-44 bg-[#1F2937] p-6 rounded-lg shadow-xs m-1 flex justify-between flex-col"
+        class="w-full max-w-44 bg-gradient-to-b from-[#1A1A1B] via-[#222224] to-[#272424] p-6 rounded-lg shadow-xs m-1 flex justify-between flex-col"
         v-for="(image, index) in data.images"
         :key="index"
       >
