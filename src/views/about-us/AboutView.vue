@@ -1,6 +1,10 @@
+<script setup lang="ts">
+import AboutUsBanner from '@/components/about_us/AboutUsBanner.vue'
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="container mx-auto">
+    <AboutUsBanner />
   </div>
 </template>
 
